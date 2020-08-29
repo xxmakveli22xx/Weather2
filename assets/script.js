@@ -12,6 +12,12 @@ $("#search-button").on("click", function(){
 //this function will display current info
 function locationInfo(cityLocation, temp, humidity, windSpeed, weatherEl){
   
+  $("#location").empty();
+  $("#temp").empty();
+  $("#humidity").empty();
+  $("#wind").empty();
+
+
   $("#location").append(cityLocation, weatherEl);
   $("#temp").append(temp);
   $("#humidity").append(humidity);
@@ -34,9 +40,9 @@ $.ajax({
    console.log(response);
    
     var cityLocation = response.name;
-    var temp = response.main.temp + " °F";
-    var humidity = response.main.humidity + " %";
-    var windSpeed = response.wind.speed + " MPH";
+    var temp = "Temperature: " + response.main.temp + " °F";
+    var humidity = "Humidity: " + response.main.humidity + " %";
+    var windSpeed = "Wind Speed: " + response.wind.speed + " MPH";
     var latitude = response.coord.lat;
     var longitude = response.coord.lon;
     
@@ -83,9 +89,9 @@ $.ajax({
   method: "GET"
 }).then(function(response) {
  
- 
-  console.log(response);
-  var uv = response.value;
+  $("#UV").empty();
+  
+  var uv = "UV Index: " + response.value;
   $("#UV").append(uv);
 
   
