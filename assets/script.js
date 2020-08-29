@@ -7,6 +7,7 @@ $("#search-button").on("click", function(){
  
     weather(city);
     
+    
 });
 
 //this function will display current info
@@ -66,18 +67,48 @@ $.ajax({
 
 function getforecast(city) {
   var api = "e6cbb66fefd604779e451fd9dd1fdb04";
-  var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + api;
+  var queryURL= "http://api.openweathermap.org/data/2.5/forecast?q="+ city + "&units=imperial&appid=" + api;
+ 
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function(response) {
    console.log(response);
    console.log("inside the Forecast function");
- 
+    
+   var forecastArray = response.list;
+     for(var i = 0; i < forecastArray.length;i+= 8){
+        
+       
+        var forecastTemp = forecastArray[i].main.temp;
+        var day = (forecastArray[i].dt_txt.split('-')[2].split(' ')[0]);
+        var month = (forecastArray[i].dt_txt.split('-')[1].split(' ')[0]);
+        var year = (forecastArray[i].dt_txt.split('-')[0].split(' ')[0]);
+        var forecastDate = (month + "/"+ day + "/" + year);
+       
+        console.log("the date "+ month + "/"+ day + "/" + year);
+       
+        var forecastWeatherIcon = forecastArray[i].weather[0].icon;
+        var forecastIconURL = "http://openweathermap.org/img/wn/" + forecastWeatherIcon + ".png";
+        var forecastWeatherEl =  $("<image>").html("<img src='" + forecastIconURL + "'>");
+       
+       
+        displayForecast(forecastDate,forecastTemp, forecastWeatherEl);
+     
+     
+      }
+
+    
 
   });
   
 }
+
+function displayForecast(forecastDate, forecastTemp, forecastWeatherEl){
+    console.log(forecastDate +" temp: " + forecastTemp);
+
+}
+
 
 function uvIndex(api, latitude, longitude){
   
