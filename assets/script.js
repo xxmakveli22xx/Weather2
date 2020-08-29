@@ -16,7 +16,8 @@ function locationInfo(cityLocation, temp, humidity, windSpeed){
   $("#temp").append(temp);
   $("#humidity").append(humidity);
   $("#wind").append(windSpeed);
-
+  
+ 
 }
 
 
@@ -36,8 +37,17 @@ $.ajax({
     var temp = response.main.temp + " °F";
     var humidity = response.main.humidity + " %";
     var windSpeed = response.wind.speed + " MPH";
+    var latitude = response.coord.lat;
+    var longitude = response.coord.lon;
+    
+   
+
     getforecast(city);
+    
+    uvIndex(api, latitude, longitude);
+
     locationInfo(cityLocation, temp, humidity, windSpeed);
+   
 
   });
 
@@ -53,11 +63,34 @@ function getforecast(city) {
     method: "GET"
   }).then(function(response) {
    console.log(response);
-  console.log("inside the function");
+  console.log("inside the Forecast function");
  
 
   });
   
 }
+
+function uvIndex(api, latitude, longitude){
+  
+  var uvIndexURL= "http://api.openweathermap.org/data/2.5/uvi?appid=" + api +"&lat=" + latitude + "&lon=" + longitude;
+ 
+  
+$.ajax({
+  url: uvIndexURL,
+  method: "GET"
+}).then(function(response) {
+ 
+ 
+  console.log(response);
+  var uv = response.value;
+  $("#UV").append(uv);
+
+  console.log("UV index " + uv);
+  
+
+
+});
+}
+
 
 }); 
