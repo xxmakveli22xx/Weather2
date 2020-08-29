@@ -9,10 +9,10 @@ $("#search-button").on("click", function(){
     
 });
 
-
-function locationInfo(cityLocation, temp, humidity, windSpeed){
+//this function will display current info
+function locationInfo(cityLocation, temp, humidity, windSpeed, weatherEl){
   
-  $("#location").append(cityLocation);
+  $("#location").append(cityLocation, weatherEl);
   $("#temp").append(temp);
   $("#humidity").append(humidity);
   $("#wind").append(windSpeed);
@@ -21,7 +21,7 @@ function locationInfo(cityLocation, temp, humidity, windSpeed){
 }
 
 
-
+// function will gather the data from the API
 function weather(city) {
  
   var api = "e6cbb66fefd604779e451fd9dd1fdb04";
@@ -40,13 +40,16 @@ $.ajax({
     var latitude = response.coord.lat;
     var longitude = response.coord.lon;
     
-   
-
-    getforecast(city);
+    //weather icon linking
+    var weatherIcon = response.weather[0].icon;
+    var iconURL = "http://openweathermap.org/img/wn/" + weatherIcon + ".png";
+    var weatherEl =  $("<image>").html("<img src='" + iconURL + "'>");
     
+   
+     //these functions are now called to display info of the weather
+    getforecast(city);
     uvIndex(api, latitude, longitude);
-
-    locationInfo(cityLocation, temp, humidity, windSpeed);
+    locationInfo(cityLocation, temp, humidity, windSpeed, weatherEl);
    
 
   });
@@ -63,7 +66,7 @@ function getforecast(city) {
     method: "GET"
   }).then(function(response) {
    console.log(response);
-  console.log("inside the Forecast function");
+   console.log("inside the Forecast function");
  
 
   });
@@ -85,7 +88,7 @@ $.ajax({
   var uv = response.value;
   $("#UV").append(uv);
 
-  console.log("UV index " + uv);
+  
   
 
 
