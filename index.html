@@ -24,17 +24,30 @@
   <nav class="navbar navbar-light bg-light">
     <form class="form-inline">
      <div class="d-flex flex-column">
-      <h5>Search for City:</h5>
-      <input id="search-value" class="form-control mr-sm-2" type="search" aria-label="Search">
-      <button id="search-button" class="btn">placeholder</button>
-     
+        <h5>Search for City:</h5>
+        <input id="search-value" class="form-control mr-sm-2" type="search" aria-label="Search">
+        <button class="btn btn-primary" id="search-button"><i class="fa fa-search"></i></button>
+     </div>
+     </form>
     
+     <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 id="location" class="card-title"></h5>
+        <p id="temp" class="card-text">Temperature: </p>
+        <p id="humidity" class="card-text">Humidity: </p>
+        <p id="wind" class="card-text">Wind Speed: </p>
+        <p id="UV" class="card-text">UV Index: </p>
+        
+        
+      </div>
     </div>
-     
-      
-   
-    </form>
+  
+
+
   </nav>
+
+  
+
 
   
 </body>
