@@ -5,6 +5,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="styles" href="./assets/styles.css">
   
@@ -25,12 +26,14 @@
     <form class="form-inline">
      <div class="d-flex flex-column">
         <h5>Search for City:</h5>
-        <input id="search-value" class="form-control mr-sm-2" type="search" aria-label="Search">
-        <button class="btn btn-primary" id="search-button"><i class="fa fa-search"></i></button>
+        <div>
+           <input id="search-value" class="form-control" type="search" aria-label="Search">
+           <button id="search-button" class="btn btn-primary" type="button"><i class="fas fa-search"></i></button>
+          </div>
      </div>
      </form>
     
-     <div class="card" style="width: 80%;">
+     <div class="card" style="width: 75%;">
       <div class="card-body">
         <h5 id="location" class="card-title"></h5>
        
@@ -42,47 +45,69 @@
         
       </div>
     </div>
-
-    <div class="card text-center" style="width: 16%;">
-      <div class="card-body">
-        <h5 id ="forecastDate" class="card-title"></h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        
-      </div>
-    </div>
-
-    <div class="card text-center" style="width: 16%;">
-      <div class="card-body">
-        <h5 id ="forecastDate" class="card-title"></h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        
-      </div>
-    </div>
-
-    <div class="card text-center" style="width: 16%;">
-      <div class="card-body">
-        <h5 id ="forecastDate" class="card-title"></h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        
-      </div>
-    </div>
-   
-    <div class="card text-center" style="width: 16%;">
-      <div class="card-body">
-        <h5 id ="forecastDate" class="card-title"></h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        
-      </div>
-    </div>
-   
-    <div class="card text-center" style="width: 16%;">
-      <div class="card-body">
-        <h5 id ="forecastDate" class="card-title"></h5>
-        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-        
-      </div>
-    </div>
+    <ul class="list-group" style="width: 20%;">
+      <li class="list-group-item">Cras justo odio</li>
+      <li class="list-group-item">Dapibus ac facilisis in</li>
+      <li class="list-group-item">Morbi leo risus</li>
+      <li class="list-group-item">Porta ac consectetur ac</li>
+      <li class="list-group-item">Vestibulum at eros</li>
+    </ul>
+    <div>
+        <h2 class="fiveDay">5 Day Forecast: </h2>
+   </div>
   
+   <div class="card text-center" style="width: 13%;">
+      <div class="card-body">
+        <h5 id ="forecastDate1" class="card-title"></h5>
+        <p id="iconForeCast1"></p>
+        <h7 id="forecastTemp1" class="card-text"></h7>
+        <h6 id="forecastHum1"></h6>
+        
+      </div>
+    </div>
+
+    
+
+    <div class="card text-center" style="width: 13%;">
+      <div class="card-body">
+        <h5 id ="forecastDate2" class="card-title"></h5>
+        <p id="iconForeCast2"></p>
+        <h7 id="forecastTemp2" class="card-text"></h7>
+        <h6 id="forecastHum2"></h6>
+        
+      </div>
+    </div>
+   
+    <div class="card text-center" style="width: 13%;">
+      <div class="card-body">
+        <h5 id ="forecastDate3" class="card-title"></h5>
+        <p id="iconForeCast3"></p>
+        <h7 id="forecastTemp3" class="card-text"></h7>
+        <h6 id="forecastHum3"></h6>
+        
+      </div>
+    </div>
+   
+    <div class="card text-center" style="width: 13%;">
+      <div class="card-body">
+        <h5 id ="forecastDate4" class="card-title"></h5>
+        <p id="iconForeCast4"></p>
+        <h7 id="forecastTemp4" class="card-text"></h7>
+        <h6 id="forecastHum4"></h6>
+        
+      </div>
+    </div>
+   
+    <div class="card text-center" style="width: 13%;">
+      <div class="card-body">
+        <h5 id ="forecastDate5" class="card-title"></h5>
+        <p id="iconForeCast5"></p>
+        <h7 id="forecastTemp5" class="card-text"></h7>
+        <h6 id="forecastHum5"></h6>
+        
+      </div>
+    </div>
+
 
 
   </nav>

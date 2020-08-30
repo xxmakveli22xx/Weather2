@@ -77,14 +77,18 @@ function getforecast(city) {
    console.log("inside the Forecast function");
     
    var forecastArray = response.list;
-     for(var i = 0; i < forecastArray.length;i+= 8){
+     for(var i = 0, j = 1; i < forecastArray.length; i+= 8, j++){
         
        
-        var forecastTemp = forecastArray[i].main.temp;
+        var forecastTemp = "Temp: " + forecastArray[i].main.temp + " °F";
         var day = (forecastArray[i].dt_txt.split('-')[2].split(' ')[0]);
         var month = (forecastArray[i].dt_txt.split('-')[1].split(' ')[0]);
         var year = (forecastArray[i].dt_txt.split('-')[0].split(' ')[0]);
         var forecastDate = (month + "/"+ day + "/" + year);
+        var forecastHum = "Humidity: " + forecastArray[i].main.humidity + " %";
+        
+
+        console.log(forecastHum); 
        
         console.log("the date "+ month + "/"+ day + "/" + year);
        
@@ -93,7 +97,7 @@ function getforecast(city) {
         var forecastWeatherEl =  $("<image>").html("<img src='" + forecastIconURL + "'>");
        
        
-        displayForecast(forecastDate,forecastTemp, forecastWeatherEl);
+        displayForecast(forecastDate,forecastTemp, forecastWeatherEl, forecastHum,j);
      
      
       }
@@ -104,8 +108,19 @@ function getforecast(city) {
   
 }
 
-function displayForecast(forecastDate, forecastTemp, forecastWeatherEl){
-    console.log(forecastDate +" temp: " + forecastTemp);
+function displayForecast(forecastDate, forecastTemp, forecastWeatherEl, forecastHum, j){
+  
+  console.log(j)
+     var forecastD = "#forecastDate" + j;
+     var forecastI = "#iconForeCast" + j;
+     var forecastT = "#forecastTemp" + j;
+     var forecastH = "#forecastHum" + j;
+
+    $(forecastD).addClass("card-text").text(forecastDate);
+    $(forecastI).html(forecastWeatherEl);
+    $(forecastT).addClass("card-text").text(forecastTemp);
+    $(forecastH).addClass("card-text").text(forecastHum);
+
 
 }
 
