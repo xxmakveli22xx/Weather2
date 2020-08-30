@@ -85,7 +85,7 @@ $.ajax({
     var latitude = response.coord.lat;
     var longitude = response.coord.lon;
     
-    var date =" "+ moment().subtract(10, 'days').calendar() + " ";
+    var date ="  ("+ moment().subtract(10, 'days').calendar() + ") ";
     
     //weather icon linking
     var weatherIcon = response.weather[0].icon;
