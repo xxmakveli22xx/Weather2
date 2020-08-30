@@ -2,7 +2,12 @@ body{
 
     background-color: bisque;
 }
+#card{
+    float: auto;
+  
 
+
+}
 
 .fiveDay{
    align-content: center;
