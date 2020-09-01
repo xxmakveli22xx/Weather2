@@ -69,7 +69,7 @@ function locationInfo(cityLocation, temp, humidity, windSpeed, weatherEl, date){
 function weather(city) {
  
   var api = "e6cbb66fefd604779e451fd9dd1fdb04";
-  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + api;
+  var queryURL = "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/weather?q=" + city + "&units=imperial&appid=" + api;
 
 $.ajax({
     url: queryURL,
@@ -112,7 +112,7 @@ $.ajax({
 
 function getforecast(city) {
   var api = "e6cbb66fefd604779e451fd9dd1fdb04";
-  var queryURL= "https://api.openweathermap.org/data/2.5/forecast?q="+ city + "&units=imperial&appid=" + api;
+  var queryURL= "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/forecast?q="+ city + "&units=imperial&appid=" + api;
  
   $.ajax({
     url: queryURL,
@@ -172,7 +172,7 @@ function displayForecast(forecastDate, forecastTemp, forecastWeatherEl, forecast
 
 function uvIndex(api, latitude, longitude){
   
-  var uvIndexURL= "https://api.openweathermap.org/data/2.5/uvi?appid=" + api +"&lat=" + latitude + "&lon=" + longitude;
+  var uvIndexURL= "https://cors-anywhere.herokuapp.com/https://api.openweathermap.org/data/2.5/uvi?appid=" + api +"&lat=" + latitude + "&lon=" + longitude;
  
   
 $.ajax({
